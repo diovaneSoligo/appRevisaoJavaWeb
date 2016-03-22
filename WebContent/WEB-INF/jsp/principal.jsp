@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ACESSOU</h1>
+<h1>${usuario.login} Bem vindo este sistema fodão!!!</h1>
+
+		<a href="ServletController?opcao=paginacadastro">Cadastrar usuario</a>
+
 </body>
 </html>

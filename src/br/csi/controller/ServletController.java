@@ -33,28 +33,47 @@ public class ServletController extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		
-		usuario u = new usuario();
-		
-		u.setLogin(login);
-		u.setSenha(senha);
-		
-		UsuarioDao uD = new UsuarioDao();
+		String opcao = request.getParameter("opcao");
 		
 		RequestDispatcher dispatcher;
 		
-		try{
-			boolean retorno = uD.autenticado(u);
-			if(retorno){
-				String pagina="/principal.jsp";
+		if(opcao.equals("logar")){
+			
+			String login = request.getParameter("login");
+			String senha = request.getParameter("senha");
+			
+			usuario u = new usuario();
+			
+			u.setLogin(login);
+			u.setSenha(senha);
+			
+			UsuarioDao uD = new UsuarioDao();
+			
+			
+			
+			try{
+				boolean retorno = uD.autenticado(u);
+				if(retorno){
+					String pagina="/WEB-INF/jsp/principal.jsp";
+					request.setAttribute("usuario", u);
+					
+					dispatcher=getServletContext().getRequestDispatcher(pagina);
+					
+					dispatcher.forward(request, response);
+				}else{
+					String pagina="/index.jsp";
+					request.setAttribute("msg", "ERRO AO LOGAR!!!!");
+					
+					dispatcher=getServletContext().getRequestDispatcher(pagina);
+					
+					dispatcher.forward(request, response);
+				}
 				
-				dispatcher=getServletContext().getRequestDispatcher(pagina);
 				
-				dispatcher.forward(request, response);
-			}else{
+			}catch(SQLException e){
+				
+				e.printStackTrace();
+				
 				String pagina="/index.jsp";
 				
 				dispatcher=getServletContext().getRequestDispatcher(pagina);
@@ -62,17 +81,18 @@ public class ServletController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			
-			
-		}catch(SQLException e){
-			
-			e.printStackTrace();
-			
-			String pagina="/index.jsp";
-			
-			dispatcher=getServletContext().getRequestDispatcher(pagina);
-			
-			dispatcher.forward(request, response);
-		}
+		}else 
+			if(opcao.equals("paginacadastro")){
+				
+				String pagina="/WEB-INF/jsp/cadastro.jsp";
+				
+				dispatcher=getServletContext().getRequestDispatcher(pagina);
+				
+				dispatcher.forward(request, response);
+				
+			}
+		
+		
 		
 		
 		
