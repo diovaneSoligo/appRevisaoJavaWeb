@@ -90,7 +90,13 @@ public class ServletController extends HttpServlet {
 				
 				dispatcher.forward(request, response);
 				
-			}
+			}else
+				if(opcao.equals("cadastroUsuario")){
+					
+					
+					
+					
+				}
 		
 		
 		
