@@ -20,9 +20,7 @@
 		
 		<c:if test="${not empty msg }">
 		
-		<h2>Usuario ou senha inválidos!!!</h2>
-		
-		
+			<h2>Usuario ou senha inválidos!!!</h2>
 		
 		</c:if>
 

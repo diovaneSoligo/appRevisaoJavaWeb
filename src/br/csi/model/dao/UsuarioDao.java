@@ -36,6 +36,7 @@ public class UsuarioDao {
 				//+ "and senha='"+u.getSenha()+"';";
 		
 		String sql="select *from usuario where login =? and senha =?";
+		
 		PreparedStatement stmtPre = c.prepareStatement(sql);
 		stmtPre.setString(1, u.getLogin());
 		stmtPre.setString(2, u.getSenha());

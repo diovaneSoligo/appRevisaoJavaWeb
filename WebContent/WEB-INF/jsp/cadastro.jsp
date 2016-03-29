@@ -8,7 +8,7 @@
 </head>
 <body style="backgroud-color:#444;">
 <center><h2>CADASTRAR USER</h2></center>
-		<center><form action="ServletController" method="post">
+		<center><form action="/appRevisaoJavaWeb/mvc?Logica=CriarUsuario" method="post">
 			<label for="login">Login:</label>
 			<input type="text" id="login" name="login" /><br>
 			<label for="senha">Senha:</label>
