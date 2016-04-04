@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${usuario.login} Bem vindo este sistema fodão!!!</h1>
 
-		<a href="ServletController?opcao=paginacadastro">Cadastrar usuario</a>
+	<h1>${usuario.login} -autenticado!</h1>
+	
+	<a href="mvc?logica=RedirecionaCadastraUsuarioLogica">
+			Cadastrar Usuário</a>
 
 </body>
 </html>

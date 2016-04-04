@@ -1,10 +1,10 @@
 package br.csi.model;
 
-public class usuario {
+public class Usuario {
+
+	private long id;
 	private String login;
 	private String senha;
-	private long id;
-	
 	
 	public long getId() {
 		return id;
@@ -24,6 +24,5 @@ public class usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 	
 }

@@ -5,8 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface Logica {
 
-	public String executa(HttpServletRequest rq, HttpServletResponse rp);
-	
-	
+	public String executa(HttpServletRequest rq, 
+			HttpServletResponse rp);
 	
 }
