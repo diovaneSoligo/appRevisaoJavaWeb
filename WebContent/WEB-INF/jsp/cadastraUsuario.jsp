@@ -9,7 +9,7 @@
 </head>
 <body>
 	<section>
-	<form action="/appRevisaoJavaWeb/mvc?logica=InserirUsuarioLogica"
+	<form action="/appRevisaoJavaWeb/mvc?Logica=InserirUsuarioLogica"
 		method="post">
 		<label for="login">Login:</label> <input type="text" id="login"
 			name="login" /> <br /> <label for="senha">Senha:</label> <input
@@ -23,9 +23,9 @@
 		<thead>
 			<tr>
 			<tr>
+				<th>ID</th>
 				<th>Login</th>
 				<th>Senha</th>
-				
 				<th>Ações</th>
 			</tr>
 
@@ -33,6 +33,7 @@
 		<tfoot>
 			<tr>
 			<tr>
+				<th>ID</th>
 				<th>Login</th>
 				<th>Senha</th>				
 				<th>Ações</th>
@@ -42,6 +43,7 @@
 
 			<c:forEach var="usuario" items="${usuarios}">
 				<tr>
+					<td>${usuario.id}</td>
 					<td>${usuario.login}</td>
 					<td>${usuario.senha}</td>
 					

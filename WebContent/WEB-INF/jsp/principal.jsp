@@ -10,7 +10,7 @@
 
 	<h1>${usuario.login} -autenticado!</h1>
 	
-	<a href="mvc?logica=RedirecionaCadastraUsuarioLogica">
+	<a href="mvc?Logica=RedirecionaCadastraUsuarioLogica">
 			Cadastrar Usuário</a>
 
 </body>

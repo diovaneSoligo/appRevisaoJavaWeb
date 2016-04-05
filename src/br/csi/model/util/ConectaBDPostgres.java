@@ -16,9 +16,9 @@ public class ConectaBDPostgres {
 		
 		try {
 			Class.forName("org.postgresql.Driver");
-			String url ="jdbc:postgresql://localhost:5432/internetb";
+			String url ="jdbc:postgresql://localhost:5433/internetb";
 			String user = "postgres";
-			String password = "1234";
+			String password = "2304";
 			c = DriverManager.getConnection(url, user, password);
 			
 		} catch (Exception e) {

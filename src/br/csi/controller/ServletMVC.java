@@ -32,7 +32,7 @@ public class ServletMVC extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("... entrou no mvc servelt");
-		String log = request.getParameter("logica");
+		String log = request.getParameter("Logica");
 		String classe = "br.csi.controller.logica."+log;
 				
 		System.out.println("vai carregar a classe: "+classe);
