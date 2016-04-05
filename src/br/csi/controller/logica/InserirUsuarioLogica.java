@@ -15,10 +15,18 @@ public class InserirUsuarioLogica implements Logica{
 		System.out.println(".......... dentro de inserir InserirUsuarioLogica");
 		String login = rq.getParameter("login");
 		String senha = rq.getParameter("senha");
+		String id = rq.getParameter("id");
+		System.out.println("ID ..." +id);
 		
 		Usuario u = new Usuario();
 		u.setLogin(login);
 		u.setSenha(senha);
+					
+		if(id==null){
+			System.out.println("novo usuario....");
+		}else{
+			u.setId(Long.parseLong(id));
+		}
 
 		UsuarioDao uD = new UsuarioDao();
 		
@@ -40,7 +48,7 @@ public class InserirUsuarioLogica implements Logica{
 			rq.setAttribute("msg", "Problemas ao inserir usuário");
 			return pagina;
 		}
-
+			
 
 			return pagina;//
 		

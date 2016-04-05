@@ -17,11 +17,15 @@ System.out.println("... dentro do excuta no LogarLogica");
 	
 	String login = rq.getParameter("login");
 	String senha = rq.getParameter("senha");
+	System.out.println("login:"+login);	
+	System.out.println("senha:"+senha);	
+	
 	
 	Usuario u = new Usuario();
 	u.setLogin(login);
 	u.setSenha(senha);
 
+	System.out.println("Cria o uD de usuarioDAO");	
 	UsuarioDao uD = new UsuarioDao();
 	
 	String pagina = "/index.jsp";
@@ -30,7 +34,7 @@ System.out.println("... dentro do excuta no LogarLogica");
 		
 		boolean retorno = uD.autenticado(u);
 		if(retorno){
-			
+			System.out.println("Manda para principal");	
 			pagina = "/WEB-INF/jsp/principal.jsp";
 			rq.setAttribute("usuario", u);
 			rq.setAttribute("usuarios", uD.getUsuarios());

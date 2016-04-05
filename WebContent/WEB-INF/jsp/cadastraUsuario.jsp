@@ -11,9 +11,17 @@
 	<section>
 	<form action="/appRevisaoJavaWeb/mvc?Logica=InserirUsuarioLogica"
 		method="post">
-		<label for="login">Login:</label> <input type="text" id="login"
-			name="login" /> <br /> <label for="senha">Senha:</label> <input
-			type="text" id="senha" name="senha"> <br />
+		
+		<c:if test="${not empty usuario }">
+				<h2>Alterar usuário: ${usuario.login}</h2>
+				<input type="hidden" name="id" value="${usuario.id }"/>
+		</c:if>
+		
+		
+		<label for="login">Login:</label> 
+		<input type="text" id="login" name="login" value="${usuario.login }" /> <br /> 
+		<label for="senha">Senha:</label> 
+		<input type="text" id="senha" name="senha" value="${usuario.senha }"> <br />
 		<button type="submit">Adicionar:</button>
 	</form>
 	</section>
@@ -48,9 +56,9 @@
 					<td>${usuario.senha}</td>
 					
 					<td><a class="btn btn-danger"
-						href="http://localhost:8080/appJavaWebRevisao/tarefaController?buscarTarefa=true&&id=${tarefa.id}">Alterar</a>
+						href="mvc?Logica=BuscarUsuario&&id=${usuario.id}">Alterar</a>
 						<a class="btn btn-danger"
-						href="http://localhost:8080/appJavaWebRevisao/tarefaController?removeTarefa=true&&id=${tarefa.id}">Remover</a>
+						href="mvc?Logica=RemoverUsuario&&id=${usuario.id}">Remover</a>
 					</td>
 				</tr>
 			</c:forEach>

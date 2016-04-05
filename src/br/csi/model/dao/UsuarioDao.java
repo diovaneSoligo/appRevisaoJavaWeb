@@ -54,7 +54,7 @@ public class UsuarioDao {
 	
 	public boolean autenticado(Usuario u) throws SQLException{
 		boolean autenticado = false;
-		
+		System.out.println("... dentro do autenticado UsuarioDAO");	
 		Connection c = ConectaBDPostgres.getConexao();
 		//Statement stmt = c.createStatement();
 		
@@ -150,6 +150,54 @@ public class UsuarioDao {
 		}
 		
 		return usuarios;
+	}
+	
+	public Usuario getUsuario(Long id){
+		Usuario u = new Usuario();
+		
+		try{
+			
+			PreparedStatement stmt =  
+					ConectaBDPostgres
+						.getConexao()
+							.prepareStatement("select * from USUARIO where id = ?");
+			stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()){				
+				u.setId(rs.getLong("id"));
+				u.setLogin(rs.getString("login"));
+				u.setSenha(rs.getString("senha"));
+				System.out.println("usuário: "+u.getLogin());
+				
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		return u;
+	}
+	
+	
+	public boolean remover(Long id){
+		boolean retorno = false;
+		
+		String sql = "delete from USUARIO where id = ?";
+		Connection c = ConectaBDPostgres
+				.getConexao();
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = c.prepareStatement(sql);
+			stmt.setLong(1, id);
+			stmt.execute();
+			retorno = true;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return retorno;
 	}
 	
 }
